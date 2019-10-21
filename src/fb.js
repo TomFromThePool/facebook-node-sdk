@@ -358,7 +358,7 @@ class Facebook {
 		if ( !/^v\d+\.\d+\//.test(path) ) {
 			path = this.options('version') + '/' + path;
 		}
-		uri = `https://graph.${this.options('beta') ? 'beta.' : ''}facebook.com/${path}`;
+		uri = `https://graph${params.graph_suffix ? params.graph_suffix : ''}.${this.options('beta') ? 'beta.' : ''}facebook.com/${path}`;
 
 		parsedUri = URL.parse(uri);
 		delete parsedUri.search;
